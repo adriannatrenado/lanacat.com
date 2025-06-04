@@ -1,0 +1,31 @@
+body {
+    background-color: #F0DEE5;
+}
+.header-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.logo-and-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-and-title img {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.logo-and-title h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
