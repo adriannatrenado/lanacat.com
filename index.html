@@ -2,12 +2,12 @@
 <html>
     <head>
     <title>lanacat.com</title>
-    <button id="play-button">❀ play song ❀</button>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <img id="custom-cursor" src="images/tumblr_luwdacaJYj1qlxrbs540.gif">
     <audio id="music" src="audio/rinsed.mp3"></audio>
+    <button id="play-button">❀ play song ❀</button>
     <div class="page">
         <img src="images/lanaicon.PNG" alt="lana" class="lana-sticker">
     <div class="header-container header">
@@ -25,6 +25,19 @@
     cursor.style.left = x + "px";
     cursor.style.top = y + "px";
     });
+    const music = document.getElementById("music");
+    const playBtn = document.getElementById("play-button");
+    let isPlaying = false;
+    playBtn.addEventListener("click", () => {
+        if (isPlaying) {
+            music.pause();
+            playBtn.textContent = "❀ play song ❀";
+        } else {
+            music.play();
+            playBtn.textContent = "❀ pause ❀";
+        }
+        isPlaying = !isPlaying;
+        });
 </script>
 
 
