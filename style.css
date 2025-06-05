@@ -1,7 +1,7 @@
 body {
-    background-color: #efe0e6;
+    background-color: #f1e5eb;
     margin:0;
-    padding:0;
+    padding: 2px;
     font-family: 'Bookman Old Style', Bookman, serif;
 }
 html, body {
@@ -18,19 +18,33 @@ html, body {
     transform: translate(-50%, -50%);
     cursor: none;
 }
-#play-button {
-    background-color: #f3e6f0;
-    border: 2px solid #d0c0ce;
-    padding: 6px 12px;
-    font-family: serif, monospace;
-    font-size: 14px;
-    border-radius: 6px;
-    cursor: none;
-    transition: all 0.2 ease;
+.music-box {
+    background-color: #ffffffcc;
+    border: 1px solid #e0d0dc;
+    border-radius: 14px;
+    padding: 10px 14px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
 }
-#play-button:hover {
-    background-color: #e6d0e0;
-    transform: scale(1.05);
+
+.music-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.music-controls img {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.music-controls img:hover {
+    transform: scale(1.1);
 }
 .page {
     position: relative;

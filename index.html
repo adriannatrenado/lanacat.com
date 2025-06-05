@@ -7,7 +7,13 @@
 <body>
     <img id="custom-cursor" src="images/tumblr_luwdacaJYj1qlxrbs540.gif">
     <audio id="music" src="audio/rinsed.mp3"></audio>
-    <button id="play-button">❀ play song ❀</button>
+    <div class="music-box">
+        <div class="music-controls">
+            <img id="back-button" src="images/back.png" alt="Back">
+            <img id="play-pause-button" src="images/play.png" alt="Play">
+            <img id="forward-button" src="images/forward.png" alt="Forward">
+        </div>
+    </div>
     <div class="page">
         <img src="images/lanaicon.PNG" alt="lana" class="lana-sticker">
     <div class="header-container header">
@@ -25,19 +31,33 @@
     cursor.style.left = x + "px";
     cursor.style.top = y + "px";
     });
-    const music = document.getElementById("music");
-    const playBtn = document.getElementById("play-button");
-    let isPlaying = false;
-    playBtn.addEventListener("click", () => {
-        if (isPlaying) {
-            music.pause();
-            playBtn.textContent = "❀ play song ❀";
-        } else {
-            music.play();
-            playBtn.textContent = "❀ pause ❀";
-        }
-        isPlaying = !isPlaying;
-        });
+
+const music = document.getElementById("music");
+const playPauseBtn = document.getElementById("play-pause-button");
+const backBtn = document.getElementById("back-button");
+const forwardBtn = document.getElementById("forward-button");
+
+let isPlaying = false;
+
+playPauseBtn.addEventListener("click", () => {
+    if (isPlaying) {
+    music.pause();
+    playPauseBtn.src = "images/play.png";
+    } else {
+    music.play();
+    playPauseBtn.src = "images/pause.png";
+}
+    isPlaying = !isPlaying;
+});
+
+backBtn.addEventListener("click", () => {
+    music.currentTime = Math.max(0, music.currentTime - 5);
+});
+
+forwardBtn.addEventListener("click", () => {
+    music.currentTime = Math.min(music.duration, music.currentTime + 5);
+});
+
 </script>
 
 
