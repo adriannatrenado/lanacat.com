@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <title>lanacat.com</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img id="custom-cursor" src="images/tumblr_luwdacaJYj1qlxrbs540.gif">
+    <!-- 🖱️ Custom Cursor Image -->
+    <img id="custom-cursor" src="images/tumblr_luwdacaJYj1qlxrbs540.gif" alt="cursor gif">
+    <!-- 🎵 Audio Player -->
     <audio id="music" src="audio/rinsed.mp3"></audio>
+    <!-- 🎛️ Music Controls -->
     <div class="music-box">
         <div class="music-controls">
             <img id="back-button" src="images/back.png" alt="Back">
@@ -14,53 +18,61 @@
             <img id="forward-button" src="images/forward.png" alt="Forward">
         </div>
     </div>
+    <!-- 🌸 Main Page Content -->
     <div class="page">
-        <img src="images/lanaicon.PNG" alt="lana" class="lana-sticker">
+    <img src="images/lanaicon.PNG" alt="lana" class="lana-sticker">
+
     <div class="header-container header">
         <h1>welcome to my website...</h1>
     </div>
+
     <div class="intro-container intro">
-        <p>this is a work-in-progress website dedicated to developing and designing new things... whatever may come will come</p>
+        <p>
+        this is a work-in-progress website dedicated to developing and designing new things... 
+        whatever may come will come
+    </p>
     </div>
-    </div>
-<script>
+</div>
+
+    <!-- 🔧 Script Section -->
+    <script>
+    // 🌟 Custom Cursor Tracking
     const cursor = document.getElementById("custom-cursor");
-    document.addEventListener("mousemove", function(e) {
-    const x = e.pageX;
-    const y = e.pageY;
-    cursor.style.left = x + "px";
-    cursor.style.top = y + "px";
+    document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.pageX + "px";
+        cursor.style.top = e.pageY + "px";
     });
 
-const music = document.getElementById("music");
-const playPauseBtn = document.getElementById("play-pause-button");
-const backBtn = document.getElementById("back-button");
-const forwardBtn = document.getElementById("forward-button");
+    // 🎧 Music Player Controls
+    const music = document.getElementById("music");
+    const playPauseBtn = document.getElementById("play-pause-button");
+    const backBtn = document.getElementById("back-button");
+    const forwardBtn = document.getElementById("forward-button");
 
-let isPlaying = false;
+    let isPlaying = false;
 
-playPauseBtn.addEventListener("click", () => {
-    if (isPlaying) {
-    music.pause();
-    playPauseBtn.src = "images/play.png";
+    // ⏯️ Toggle play/pause
+    playPauseBtn.addEventListener("click", () => {
+        if (isPlaying) {
+        music.pause();
+        playPauseBtn.src = "images/play.png";
     } else {
-    music.play();
-    playPauseBtn.src = "images/pause.png";
-}
+        music.play();
+        playPauseBtn.src = "images/pause.png";
+    }
     isPlaying = !isPlaying;
-});
+    });
 
-backBtn.addEventListener("click", () => {
-    music.currentTime = Math.max(0, music.currentTime - 5);
-});
+    // ⏪ Go back 5 seconds
+    backBtn.addEventListener("click", () => {
+        music.currentTime = Math.max(0, music.currentTime - 5);
+    });
 
-forwardBtn.addEventListener("click", () => {
-    music.currentTime = Math.min(music.duration, music.currentTime + 5);
-});
-
-</script>
-
-
+    // ⏩ Skip forward 5 seconds
+    forwardBtn.addEventListener("click", () => {
+        music.currentTime = Math.min(music.duration, music.currentTime + 5);
+    });
+    </script>
 
 </body>
 </html>
