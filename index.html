@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <img id="custom-cursor" src="images/tumblr_luwdacaJYj1qlxrbs540.gif">
     <div class="page">
         <img src="images/lanaicon.PNG" alt="lana" class="lana-sticker">
     <div class="header-container header">
@@ -14,5 +15,13 @@
         <p>this is a work-in-progress website dedicated to developing and designing new things... whatever may come will come</p>
     </div>
     </div>
+    <script>
+    const cursor = document.getElementById("custom-cursor");
+    document.addEventListener("mousemove", function(e) {
+    cursor.style.left = e.pageX + "px";
+    cursor.style.top = e.pageY + "px";
+    });
+</script>
+
 </body>
 </html>
