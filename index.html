@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>lana.com</title>
+    <title>lanacat.com</title>
+    <button id="play-button">❀ play song ❀</button>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <img id="custom-cursor" src="images/tumblr_luwdacaJYj1qlxrbs540.gif">
+    <audio id="music" src="audio/rinsed.mp3"></audio>
     <div class="page">
         <img src="images/lanaicon.PNG" alt="lana" class="lana-sticker">
     <div class="header-container header">
@@ -15,13 +17,17 @@
         <p>this is a work-in-progress website dedicated to developing and designing new things... whatever may come will come</p>
     </div>
     </div>
-    <script>
+<script>
     const cursor = document.getElementById("custom-cursor");
     document.addEventListener("mousemove", function(e) {
-    cursor.style.left = e.pageX + "px";
-    cursor.style.top = e.pageY + "px";
+    const x = e.pageX;
+    const y = e.pageY;
+    cursor.style.left = x + "px";
+    cursor.style.top = y + "px";
     });
 </script>
+
+
 
 </body>
 </html>
