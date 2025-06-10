@@ -81,7 +81,7 @@ p {
     background-color: #ddd0d7;
     border-radius: 0px;
     overflow: hidden;
-    cursor: pointer;
+    cursor: none;
 }
 
 .progress-bar {
@@ -104,7 +104,7 @@ p {
     border: 1px solid #acaeb4;
     border-radius: 2px;
     padding: 6px 12px;
-    cursor: pointer;
+    cursor: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,7 +116,7 @@ p {
 .music-controls img {
     width: 30px;
     height: 20px;
-    cursor: pointer;
+    cursor: none;
     transition: none;
     transform: none;
     display: block;
