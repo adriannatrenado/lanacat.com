@@ -2,77 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lanacat.com</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 🖱️ Custom Cursor Image -->
     <img id="custom-cursor" src="images/tumblr_luwdacaJYj1qlxrbs540.gif" alt="cursor gif">
-    <!-- 🎵 Audio Player -->
-    <audio id="music" src="audio/rinsed.mp3"></audio>
-    <!-- 🎛️ Music Controls -->
+
+    <audio id="music" src="audio/rinsed.mp3" preload="auto"></audio>
     <div class="music-box">
         <div class="music-controls">
-            <img id="back-button" src="images/back.png" alt="Back">
-            <img id="play-pause-button" src="images/play.png" alt="Play">
-            <img id="forward-button" src="images/forward.png" alt="Forward">
+            <img id="back-button" src="images/back.png" alt="Back 5 seconds">
+            <img id="play-pause-button" src="images/play.png" alt="Play/Pause">
+            <img id="forward-button" src="images/forward.png" alt="Forward 5 seconds">
         </div>
     </div>
-    <!-- 🌸 Main Page Content -->
-    <div class="page">
-    <img src="images/lanaicon.PNG" alt="lana" class="lana-sticker">
 
-    <div class="header-container header">
-        <h1>welcome to my website...</h1>
-    </div>
+    <main class="page-content">
+        <img src="images/lanaicon.PNG" alt="Lana Del Rey sticker" class="lana-sticker">
 
-    <div class="intro-container intro">
-        <p>
-        this is a work-in-progress website dedicated to developing and designing new things... 
-        whatever may come will come
-    </p>
-    </div>
-</div>
+        <header class="site-header">
+            <h1>welcome to my website...</h1>
+        </header>
 
-    <!-- 🔧 Script Section -->
+        <section class="intro-section">
+            <p>
+                This is a work-in-progress website dedicated to developing and designing new things...
+                whatever may come will come.
+            </p>
+        </section>
+    </main>
+
     <script>
-    // 🌟 Custom Cursor Tracking
-    const cursor = document.getElementById("custom-cursor");
-    document.addEventListener("mousemove", (e) => {
-        cursor.style.left = e.pageX + "px";
-        cursor.style.top = e.pageY + "px";
-    });
+        // Custom Cursor Tracking
+        const cursor = document.getElementById("custom-cursor");
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.pageX + "px";
+            cursor.style.top = e.pageY + "px";
+        });
 
-    // 🎧 Music Player Controls
-    const music = document.getElementById("music");
-    const playPauseBtn = document.getElementById("play-pause-button");
-    const backBtn = document.getElementById("back-button");
-    const forwardBtn = document.getElementById("forward-button");
+        // Music Player Controls
+        const music = document.getElementById("music");
+        const playPauseBtn = document.getElementById("play-pause-button");
+        const backBtn = document.getElementById("back-button");
+        const forwardBtn = document.getElementById("forward-button");
 
-    let isPlaying = false;
+        let isPlaying = false;
 
-    // ⏯️ Toggle play/pause
-    playPauseBtn.addEventListener("click", () => {
-        if (isPlaying) {
-        music.pause();
-        playPauseBtn.src = "images/play.png";
-    } else {
-        music.play();
-        playPauseBtn.src = "images/pause.png";
-    }
-    isPlaying = !isPlaying;
-    });
+        // Toggle play/pause
+        playPauseBtn.addEventListener("click", () => {
+            if (isPlaying) {
+                music.pause();
+                playPauseBtn.src = "images/play.png";
+            } else {
+                music.play();
+                playPauseBtn.src = "images/pause.png";
+            }
+            isPlaying = !isPlaying;
+        });
 
-    // ⏪ Go back 5 seconds
-    backBtn.addEventListener("click", () => {
-        music.currentTime = Math.max(0, music.currentTime - 5);
-    });
+        // Go back 5 seconds
+        backBtn.addEventListener("click", () => {
+            music.currentTime = Math.max(0, music.currentTime - 5);
+        });
 
-    // ⏩ Skip forward 5 seconds
-    forwardBtn.addEventListener("click", () => {
-        music.currentTime = Math.min(music.duration, music.currentTime + 5);
-    });
+        // Skip forward 5 seconds
+        forwardBtn.addEventListener("click", () => {
+            music.currentTime = Math.min(music.duration, music.currentTime + 5);
+        });
     </script>
-
 </body>
 </html>
