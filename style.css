@@ -1,13 +1,3 @@
-/* Custom Font */
-@font-face {
-    font-family: 'kg_midnight_memoriesregular';
-    src: url('fonts/kgmidnightmemories-webfont.woff2') format('woff2'),
-        url('fonts/kgmidnightmemories-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* Global Styles & Base Elements */
 html,
 body {
     background-color: #f1e5eb;
@@ -19,12 +9,11 @@ body {
 }
 
 p {
-    margin: 0; /* Changed to 0 to remove default paragraph spacing, especially for song title */
+    margin: 0;
     font-size: 16px;
     line-height: 1.5;
 }
 
-/* Custom Cursor */
 #custom-cursor {
     position: absolute;
     width: 33px;
@@ -35,9 +24,9 @@ p {
     cursor: none;
 }
 
-/* Music Player Styles */
 .music-box {
-    background-color: rgba(238, 234, 234, 0.8);
+    background-color: #f1f1f1;
+    opacity: 85%;
     border: 1px solid #e1d6df;
     border-radius: 5px;
     padding: 10px 14px;
@@ -46,7 +35,6 @@ p {
     right: 20px;
     z-index: 1000;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(3px);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -56,7 +44,7 @@ p {
 .top-row-player {
     display: flex;
     flex-direction: row;
-    gap: 10px; /* Adjusted gap for better spacing with new album cover size */
+    gap: 10px;
     align-items: center;
 }
 
@@ -69,24 +57,26 @@ p {
 }
 
 .song-info-and-progress {
-    display: flex; /* Added display: flex; for flex-direction to work */
-    flex-direction: column; /* CORRECTED: Stacks song title ON TOP of progress bar */
-    align-items: center; /* Horizontally centers content within this column */
-    gap: 20px; /* Vertical space between song title and progress bar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     flex-grow: 1;
+    font-family: 'Inter', sans-serif;
+
 }
 
 #song-title {
-    font-size: 14px; /* Adjusted size */
+    font-size: 14px;
     color: #565656;
-    margin: 0; /* Ensure no extra margin from default p tag */
-    white-space: nowrap; /* Prevents text from wrapping */
-    overflow: hidden; /* Hides overflowing text */
-    text-overflow: ellipsis; /* Adds "..." to cut off text */
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .progress-container {
-    width: 110px; /* Fills available width within .song-info-and-progress */
+    width: 110px;
     height: 3px;
     background-color: #ddd0d7;
     border-radius: 0px;
@@ -95,7 +85,7 @@ p {
 }
 
 .progress-bar {
-    background-color: #6a0dad; /* Changed color to be visible against container */
+    background-color: #6a0dad;
     height: 100%;
     width: 0%;
     border-radius: 3px;
@@ -105,7 +95,7 @@ p {
 .music-controls {
     display: flex;
     gap: 10px;
-    justify-content: center; /* Centers the buttons horizontally */
+    justify-content: center;
     width: 100%;
 }
 
@@ -137,7 +127,6 @@ p {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* Main Page Content Layout */
 .page-content {
     position: relative;
     min-height: 100vh;
