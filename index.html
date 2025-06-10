@@ -11,7 +11,18 @@
     <img id="custom-cursor" src="images/tumblr_luwdacaJYj1qlxrbs540.gif" alt="cursor gif">
 
     <audio id="music" src="audio/rinsed.mp3" preload="auto"></audio>
+
     <div class="music-box">
+        <div class="top-row-player">
+            <img id="album-cover" src="images/albumcover.jpeg" alt="album cover">
+            <div class="song-info-and-progress">
+                <p id="song-title">rinsed.mp3</p>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+
         <div class="music-controls">
             <button id="back-button" type="button">
                 <img src="images/back.png" alt="Back 5 seconds">
@@ -41,44 +52,46 @@
     </main>
 
     <script>
-        // Custom Cursor Tracking
         const cursor = document.getElementById("custom-cursor");
         document.addEventListener("mousemove", (e) => {
             cursor.style.left = e.pageX + "px";
             cursor.style.top = e.pageY + "px";
         });
 
-        // Music Player Controls
         const music = document.getElementById("music");
         const playPauseBtn = document.getElementById("play-pause-button");
         const backBtn = document.getElementById("back-button");
         const forwardBtn = document.getElementById("forward-button");
 
+        const progressContainer = document.querySelector('.progress-container');
+        const progressBar = document.querySelector('.progress-bar');
+
         let isPlaying = false;
 
-        // Toggle play/pause
         playPauseBtn.addEventListener("click", () => {
-            // Get the <img> element specifically within the play/pause button
-            const playPauseImg = playPauseBtn.querySelector('img'); // <--- ADDED/FIXED THIS LINE
+            const playPauseImg = playPauseBtn.querySelector('img');
 
             if (isPlaying) {
                 music.pause();
-                playPauseImg.src = "images/play.png"; // <--- CHANGED TO use playPauseImg.src
+                playPauseImg.src = "images/play.png";
             } else {
                 music.play();
-                playPauseImg.src = "images/pause.png"; // <--- CHANGED TO use playPauseImg.src
+                playPauseImg.src = "images/pause.png";
             }
             isPlaying = !isPlaying;
         });
 
-        // Go back 5 seconds
         backBtn.addEventListener("click", () => {
             music.currentTime = Math.max(0, music.currentTime - 5);
         });
 
-        // Skip forward 5 seconds
         forwardBtn.addEventListener("click", () => {
             music.currentTime = Math.min(music.duration, music.currentTime + 5);
+        });
+
+        music.addEventListener('timeupdate', () => {
+            const progressPercent = (music.currentTime / music.duration) * 100;
+            progressBar.style.width = `${progressPercent}%`;
         });
     </script>
 </body>

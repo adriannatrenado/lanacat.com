@@ -1,49 +1,43 @@
-/* --- Global Styles & Base Elements --- */
-/* --- Custom Font --- */
+/* Custom Font */
 @font-face {
-    font-family: 'kg_midnight_memoriesregular'; /* This is the name you'll use to apply the font */
+    font-family: 'kg_midnight_memoriesregular';
     src: url('fonts/kgmidnightmemories-webfont.woff2') format('woff2'),
         url('fonts/kgmidnightmemories-webfont.woff') format('woff');
-    font-weight: normal; /* Leave as normal unless you have bold/italic versions */
-    font-style: normal;  /* Leave as normal unless you have bold/italic versions */
+    font-weight: normal;
+    font-style: normal;
 }
 
-/* --- Global Styles & Base Elements --- */
-/* ... (The rest of your existing CSS starts here) ... */
+/* Global Styles & Base Elements */
 html,
 body {
     background-color: #f1e5eb;
-    height: 100%; /* Ensures body takes full viewport height */
-    cursor: none; /* Hides default cursor */
+    height: 100%;
+    cursor: none;
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
 }
 
-h1 {
-
-}
-
 p {
-    margin-top: 20px;
+    margin: 0; /* Changed to 0 to remove default paragraph spacing, especially for song title */
     font-size: 16px;
     line-height: 1.5;
 }
 
-/* --- Custom Cursor --- */
+/* Custom Cursor */
 #custom-cursor {
     position: absolute;
     width: 33px;
     height: 33px;
-    pointer-events: none; /* Allows clicks to pass through */
-    z-index: 9999; /* Ensures it's always on top */
-    transform: translate(-50%, -50%); /* Centers the cursor image on the mouse pointer */
-    cursor: none; /* Ensures no browser default cursor appears on the image itself */
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    cursor: none;
 }
 
-/* --- Music Player Styles --- */
+/* Music Player Styles */
 .music-box {
-    background-color: rgba(238, 234, 234, 0.8); /* Using rgba for clarity on opacity */
+    background-color: rgba(238, 234, 234, 0.8);
     border: 1px solid #e1d6df;
     border-radius: 5px;
     padding: 10px 14px;
@@ -53,11 +47,66 @@ p {
     z-index: 1000;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(3px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+}
+
+.top-row-player {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Adjusted gap for better spacing with new album cover size */
+    align-items: center;
+}
+
+#album-cover {
+    width: 65px;
+    height: 65px;
+    border-radius: 5px;
+    border: 1px solid #acaeb4;
+    object-fit: cover;
+}
+
+.song-info-and-progress {
+    display: flex; /* Added display: flex; for flex-direction to work */
+    flex-direction: column; /* CORRECTED: Stacks song title ON TOP of progress bar */
+    align-items: center; /* Horizontally centers content within this column */
+    gap: 5px; /* Vertical space between song title and progress bar */
+    flex-grow: 1;
+}
+
+#song-title {
+    font-size: 14px; /* Adjusted size */
+    color: #333;
+    margin: 0; /* Ensure no extra margin from default p tag */
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflowing text */
+    text-overflow: ellipsis; /* Adds "..." to cut off text */
+}
+
+.progress-container {
+    width: 100%; /* Fills available width within .song-info-and-progress */
+    height: 3px;
+    background-color: #ddd0d7;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.progress-bar {
+    background-color: #6a0dad; /* Changed color to be visible against container */
+    height: 100%;
+    width: 0%;
+    border-radius: 3px;
+    transition: width 0.1s linear;
 }
 
 .music-controls {
     display: flex;
     gap: 10px;
+    justify-content: center; /* Centers the buttons horizontally */
+    width: 100%;
 }
 
 .music-controls button {
@@ -69,30 +118,31 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    -webkit-appearance: none; 
-    appearance: none;         
-    outline: none;           
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
 }
 
 .music-controls img {
-    width: 28px;
-    height: 28px;
+    width: 35px;
+    height: 20px;
     cursor: pointer;
     transition: none;
     transform: none;
     display: block;
 }
+
 .music-controls button:hover {
     transform: scale(1.05);
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* --- Main Page Content Layout --- */
-.page-content { /* Renamed from .page to match HTML semantic update */
+/* Main Page Content Layout */
+.page-content {
     position: relative;
-    min-height: 100vh; /* Use min-height to allow content to expand if needed */
+    min-height: 100vh;
     padding: 20px;
-    box-sizing: border-box; /* Include padding in the element's total width and height */
+    box-sizing: border-box;
 }
 
 .lana-sticker {
@@ -103,13 +153,13 @@ p {
     border-radius: 50%;
 }
 
-.site-header { /* Renamed from .header-container to match HTML semantic update */
+.site-header {
     position: absolute;
     top: 50px;
     left: 200px;
 }
 
-.intro-section { /* Renamed from .intro-container to match HTML semantic update */
+.intro-section {
     position: absolute;
     top: 140px;
     left: 80px;
