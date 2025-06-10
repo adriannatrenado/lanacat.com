@@ -1,25 +1,37 @@
+/* --- Global Styles & Base Elements --- */
+html,
 body {
-    background-color: #f1e5eb;
-    margin:0;
-    padding: 2px;
-    font-family: 'Bookman Old Style', Bookman, serif;
-}
-html, body {
-    height: 100%;
-    cursor: none;
+    height: 100%; /* Ensures body takes full viewport height */
+    cursor: none; /* Hides default cursor */
+    margin: 0;
+    padding: 0; /* Set padding to 0 to remove default spacing */
 }
 
+body {
+    background-color: #f1e5eb;
+    font-family: 'Bookman Old Style', Bookman, serif;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* --- Custom Cursor --- */
 #custom-cursor {
     position: absolute;
     width: 33px;
     height: 33px;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    cursor: none;
+    pointer-events: none; /* Allows clicks to pass through */
+    z-index: 9999; /* Ensures it's always on top */
+    transform: translate(-50%, -50%); /* Centers the cursor image on the mouse pointer */
+    cursor: none; /* Ensures no browser default cursor appears on the image itself */
 }
+
+/* --- Music Player Styles --- */
 .music-box {
-    background-color: #fbf6f6cc;
+    background-color: rgba(251, 246, 246, 0.8); /* Using rgba for clarity on opacity */
     border: 1px solid #e0d0dc;
     border-radius: 14px;
     padding: 10px 14px;
@@ -46,32 +58,32 @@ html, body {
 .music-controls img:hover {
     transform: scale(1.1);
 }
-.page {
+
+/* --- Main Page Content Layout --- */
+.page-content { /* Renamed from .page to match HTML semantic update */
     position: relative;
-    height: 100vh;
+    min-height: 100vh; /* Use min-height to allow content to expand if needed */
     padding: 20px;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
 }
-.lana-sticker{
+
+.lana-sticker {
     position: absolute;
     top: 40px;
     left: 80px;
     width: 100px;
-    border-radius:50%;
+    border-radius: 50%;
 }
 
-.header-container {
+.site-header { /* Renamed from .header-container to match HTML semantic update */
     position: absolute;
     top: 50px;
     left: 200px;
 }
-.intro-container {
+
+.intro-section { /* Renamed from .intro-container to match HTML semantic update */
     position: absolute;
     top: 140px;
     left: 80px;
     max-width: 700px;
-}
-p {
-    margin-top: 20px;
-    font-size: 16px;
-    line-height: 1.5;
 }
