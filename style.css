@@ -1,15 +1,27 @@
 /* --- Global Styles & Base Elements --- */
+/* --- Custom Font --- */
+@font-face {
+    font-family: 'kg_midnight_memoriesregular'; /* This is the name you'll use to apply the font */
+    src: url('fonts/kgmidnightmemories-webfont.woff2') format('woff2'),
+        url('fonts/kgmidnightmemories-webfont.woff') format('woff');
+    font-weight: normal; /* Leave as normal unless you have bold/italic versions */
+    font-style: normal;  /* Leave as normal unless you have bold/italic versions */
+}
+
+/* --- Global Styles & Base Elements --- */
+/* ... (The rest of your existing CSS starts here) ... */
 html,
 body {
+    background-color: #f1e5eb;
     height: 100%; /* Ensures body takes full viewport height */
     cursor: none; /* Hides default cursor */
     margin: 0;
-    padding: 0; /* Set padding to 0 to remove default spacing */
+    padding: 0;
+    font-family: 'Inter', sans-serif;
 }
 
-body {
-    background-color: #f1e5eb;
-    font-family: 'Bookman Old Style', Bookman, serif;
+h1 {
+
 }
 
 p {
