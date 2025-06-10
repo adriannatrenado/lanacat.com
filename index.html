@@ -12,14 +12,20 @@
     <audio id="music" src="audio/rinsed.mp3" preload="auto"></audio>
     <div class="music-box">
         <div class="music-controls">
-            <img id="back-button" src="images/back.png" alt="Back 5 seconds">
-            <img id="play-pause-button" src="images/play.png" alt="Play/Pause">
-            <img id="forward-button" src="images/forward.png" alt="Forward 5 seconds">
+            <button id="back-button" type="button">
+                <img src="images/back.png" alt="Back 5 seconds">
+            </button>
+            <button id="play-pause-button" type="button">
+                <img src="images/play.png" alt="Play/Pause">
+            </button>
+            <button id="forward-button" type="button">
+                <img src="images/forward.png" alt="Forward 5 seconds">
+            </button>
         </div>
     </div>
 
     <main class="page-content">
-        <img src="images/lanaicon.PNG" alt="Lana Del Rey sticker" class="lana-sticker">
+        <img src="images/lanaicon.PNG" alt="lana cat sticker" class="lana-sticker">
 
         <header class="site-header">
             <h1>welcome to my website...</h1>
@@ -51,12 +57,15 @@
 
         // Toggle play/pause
         playPauseBtn.addEventListener("click", () => {
+            // Get the <img> element specifically within the play/pause button
+            const playPauseImg = playPauseBtn.querySelector('img'); // <--- ADDED/FIXED THIS LINE
+
             if (isPlaying) {
                 music.pause();
-                playPauseBtn.src = "images/play.png";
+                playPauseImg.src = "images/play.png"; // <--- CHANGED TO use playPauseImg.src
             } else {
                 music.play();
-                playPauseBtn.src = "images/pause.png";
+                playPauseImg.src = "images/pause.png"; // <--- CHANGED TO use playPauseImg.src
             }
             isPlaying = !isPlaying;
         });

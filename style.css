@@ -31,9 +31,9 @@ p {
 
 /* --- Music Player Styles --- */
 .music-box {
-    background-color: rgba(251, 246, 246, 0.8); /* Using rgba for clarity on opacity */
-    border: 1px solid #e0d0dc;
-    border-radius: 14px;
+    background-color: rgba(238, 234, 234, 0.8); /* Using rgba for clarity on opacity */
+    border: 1px solid #e1d6df;
+    border-radius: 5px;
     padding: 10px 14px;
     position: fixed;
     top: 20px;
@@ -48,15 +48,31 @@ p {
     gap: 10px;
 }
 
+.music-controls button {
+    background-color: #e4dee3;
+    border: 1px solid #acaeb4;
+    border-radius: 2px;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-appearance: none; 
+    appearance: none;         
+    outline: none;           
+}
+
 .music-controls img {
     width: 28px;
     height: 28px;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: none;
+    transform: none;
+    display: block;
 }
-
-.music-controls img:hover {
-    transform: scale(1.1);
+.music-controls button:hover {
+    transform: scale(1.05);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* --- Main Page Content Layout --- */
