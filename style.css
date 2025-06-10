@@ -72,13 +72,13 @@ p {
     display: flex; /* Added display: flex; for flex-direction to work */
     flex-direction: column; /* CORRECTED: Stacks song title ON TOP of progress bar */
     align-items: center; /* Horizontally centers content within this column */
-    gap: 5px; /* Vertical space between song title and progress bar */
+    gap: 20px; /* Vertical space between song title and progress bar */
     flex-grow: 1;
 }
 
 #song-title {
     font-size: 14px; /* Adjusted size */
-    color: #333;
+    color: #565656;
     margin: 0; /* Ensure no extra margin from default p tag */
     white-space: nowrap; /* Prevents text from wrapping */
     overflow: hidden; /* Hides overflowing text */
@@ -86,10 +86,10 @@ p {
 }
 
 .progress-container {
-    width: 100%; /* Fills available width within .song-info-and-progress */
+    width: 110px; /* Fills available width within .song-info-and-progress */
     height: 3px;
     background-color: #ddd0d7;
-    border-radius: 3px;
+    border-radius: 0px;
     overflow: hidden;
     cursor: pointer;
 }
@@ -124,7 +124,7 @@ p {
 }
 
 .music-controls img {
-    width: 35px;
+    width: 30px;
     height: 20px;
     cursor: pointer;
     transition: none;
