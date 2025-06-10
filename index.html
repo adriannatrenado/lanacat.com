@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img id="custom-cursor" src="images/normal.gif" alt="cursor gif">
+    <img id="custom-cursor" src="images/normal.gif" alt="custom cursor">
 
     <audio id="music" src="audio/rinsed.mp3" preload="auto"></audio>
 
@@ -52,76 +52,88 @@
     </main>
 
     <script>
-        const cursor = document.getElementById("custom-cursor");
+    const cursor = document.getElementById("custom-cursor");
 
-        // Define your cursor image paths
-        const cursorImages = {
-            default: 'images/normal.gif',
-            pointer: 'images/linkselect.gif',
-            // You can add more states if you want to use other GIFs:
-            // textSelect: 'images/textselect.gif',
-            // busy: 'images/busy2.gif'
-        };
+    const cursorImages = {
+        default: 'images/normal.gif',
+        pointer: 'images/linkselect.gif',
+        precisionSelect: 'images/precisionselect.gif', 
+    };
 
-        // Set the initial cursor image
-        cursor.src = cursorImages.default;
+    cursor.src = cursorImages.default;
 
-        // Custom Cursor Tracking (to make it follow the mouse)
-        document.addEventListener("mousemove", (e) => {
-            cursor.style.left = e.pageX + "px";
-            cursor.style.top = e.pageY + "px";
+    document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.pageX + "px";
+        cursor.style.top = e.pageY + "px";
+    });
+
+    const pointerElements = document.querySelectorAll(
+        'button, a' 
+    );
+
+    pointerElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.src = cursorImages.pointer;
         });
-
-        // Add interaction for specific elements (buttons, links, music progress bar)
-        const interactiveElements = document.querySelectorAll(
-            'button, a, .progress-container'
-        );
-
-        interactiveElements.forEach(element => {
-            element.addEventListener('mouseenter', () => { // Use mouseenter for clean entry
-                cursor.src = cursorImages.pointer; // Change to linkselect.gif on hover
-            });
-            element.addEventListener('mouseleave', () => { // Use mouseleave for clean exit
-                cursor.src = cursorImages.default; // Change back to normal.gif when mouse leaves
-            });
+        element.addEventListener('mouseleave', () => {
+            cursor.src = cursorImages.default; 
         });
+    });
 
-        // Music Player Controls (make sure this part is still below the cursor JS)
-        const music = document.getElementById("music");
-        const playPauseBtn = document.getElementById("play-pause-button");
-        const backBtn = document.getElementById("back-button");
-        const forwardBtn = document.getElementById("forward-button");
-
-        const progressContainer = document.querySelector('.progress-container');
-        const progressBar = document.querySelector('.progress-bar');
-
-        let isPlaying = false;
-
-        playPauseBtn.addEventListener("click", () => {
-            const playPauseImg = playPauseBtn.querySelector('img');
-
-            if (isPlaying) {
-                music.pause();
-                playPauseImg.src = "images/play.png";
-            } else {
-                music.play();
-                playPauseImg.src = "images/pause.png";
-            }
-            isPlaying = !isPlaying;
+    
+    const progressBarElement = document.querySelector('.progress-container');
+    if (progressBarElement) { 
+        progressBarElement.addEventListener('mouseenter', () => {
+            cursor.src = cursorImages.precisionSelect; 
         });
-
-        backBtn.addEventListener("click", () => {
-            music.currentTime = Math.max(0, music.currentTime - 5);
+        progressBarElement.addEventListener('mouseleave', () => {
+            cursor.src = cursorImages.default; 
         });
+    }
 
-        forwardBtn.addEventListener("click", () => {
-            music.currentTime = Math.min(music.duration, music.currentTime + 5);
-        });
+    const music = document.getElementById("music");
+    const playPauseBtn = document.getElementById("play-pause-button");
+    const backBtn = document.getElementById("back-button");
+    const forwardBtn = document.getElementById("forward-button");
 
-        music.addEventListener('timeupdate', () => {
-            const progressPercent = (music.currentTime / music.duration) * 100;
-            progressBar.style.width = `${progressPercent}%`;
-        });
-    </script>
+    const progressContainer = document.querySelector('.progress-container');
+    const progressBar = document.querySelector('.progress-bar');
+
+    let isPlaying = false;
+
+    playPauseBtn.addEventListener("click", () => {
+        const playPauseImg = playPauseBtn.querySelector('img');
+
+        if (isPlaying) {
+            music.pause();
+            playPauseImg.src = "images/play.png";
+        } else {
+            music.play();
+            playPauseImg.src = "images/pause.png";
+        }
+        isPlaying = !isPlaying;
+    });
+
+    backBtn.addEventListener("click", () => {
+        music.currentTime = Math.max(0, music.currentTime - 5);
+    });
+
+    forwardBtn.addEventListener("click", () => {
+        music.currentTime = Math.min(music.duration, music.currentTime + 5);
+    });
+
+    music.addEventListener('timeupdate', () => {
+        const progressPercent = (music.currentTime / music.duration) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+    });
+
+    progressContainer.addEventListener('click', (e) => {
+        const clickX = e.pageX - progressContainer.getBoundingClientRect().left;
+        const containerWidth = progressContainer.offsetWidth;
+        const clickRatio = clickX / containerWidth;
+        music.currentTime = music.duration * clickRatio;
+    });
+
+</script>
 </body>
 </html>
