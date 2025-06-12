@@ -1,13 +1,27 @@
+@font-face {
+    font-family: 'Cyperpunk Waifus'; 
+    src: url('cyperpunkwaifus.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal;
+}
+
 html,
 body {
-    background-color: #f1e5eb;
+    background-color: #f7eff1;
     height: 100%;
     cursor: none;
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
 }
-
+#site-title {
+    position: relative;
+    font-family: 'Cyperpunk Waifus', monospace;
+    font-size: 60px;
+    color: #6f616a;
+    top: -20px;
+    left: -30px;
+}
 p {
     margin: 0;
     font-size: 16px;
@@ -142,11 +156,14 @@ p {
     top: 40px;
     left: 80px;
     width: 100px;
-    border-radius: 50%;
+    border-radius: 0%;
 }
 
+#main-nav {
+    list-style-type: none;
+}
 .site-header {
-    position: absolute;
+    position: relative;
     top: 50px;
     left: 200px;
 }
