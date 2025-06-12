@@ -159,7 +159,6 @@ p {
     border-radius: 0%;
 }
 
-
 .site-header {
     position: relative;
     top: 50px;
@@ -173,12 +172,6 @@ p {
     max-width: 700px;
 }
 
-.about-me-page {
-    display: flex;
-    justify-content: center;
-    padding: 60px 20px;
-}
-
 .about-me {
     display: flex;
     flex-direction: column;
@@ -188,6 +181,34 @@ p {
 }
 
 .about-me section {
+    background-color: #fbf6f8;
+    border-radius: 0px;
+    border: 1px solid #eadde2;
+    padding: 24px;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease;
+}
+
+.main-layout {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px 40px;
+    gap: 10px;
+}
+
+.column-left {
+    max-width: 530px;
+    flex: 0.8;
+}
+
+.column-right {
+    max-width: 900px;
+    flex: 1.2;
+}
+
+.column-right section {
     background-color: #fbf6f8;
     border-radius: 0px;
     border: 1px solid #eadde2;

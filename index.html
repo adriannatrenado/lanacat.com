@@ -1,155 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>lanacat.com</title>
-    <link rel="stylesheet" href="inter.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="inter.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
-<body> 
-    <img id="custom-cursor" src="images/normal.gif" alt="custom cursor">
+
+<body>
+    <img id="custom-cursor" src="images/normal.gif" alt="custom cursor" />
 
     <audio id="music" src="audio/rinsed.mp3" preload="auto"></audio>
-    
+
     <div class="music-box">
         <div class="top-row-player">
-            <img id="album-cover" src="images/albumcover.jpeg" alt="album cover">
-            <div class="song-info-and-progress">
-                <p id="song-title">rinsed.mp3</p>
-                <div class="progress-container">
-                    <div class="progress-bar"></div>
-                </div>
+        <img id="album-cover" src="images/albumcover.jpeg" alt="album cover" />
+        <div class="song-info-and-progress">
+            <p id="song-title">rinsed.mp3</p>
+            <div class="progress-container">
+            <div class="progress-bar"></div>
             </div>
         </div>
+        </div>
 
-        <div class="music-controls">
-            <button id="back-button" type="button">
-                <img src="images/back.png" alt="Back 5 seconds">
-            </button>
-            <button id="play-pause-button" type="button">
-                <img src="images/play.png" alt="Play/Pause">
-            </button>
-            <button id="forward-button" type="button">
-                <img src="images/forward.png" alt="Forward 5 seconds">
-            </button>
+    <div class="music-controls">
+        <button id="back-button" type="button">
+            <img src="images/back.png" alt="Back 5 seconds" />
+        </button>
+        <button id="play-pause-button" type="button">
+            <img src="images/play.png" alt="Play/Pause" />
+        </button>
+        <button id="forward-button" type="button">
+            <img src="images/forward.png" alt="Forward 5 seconds" />
+        </button>
         </div>
     </div>
 
     <main class="page-content">
-        <img src="images/lanapixelicon.png" alt="lana cat sticker" class="lana-sticker">
+        <img src="images/lanapixelicon.png" alt="lana cat sticker" class="lana-sticker" />
+
         <header class="site-header">
             <h1 id="site-title">lanacat.com</h1>
         </header>
 
-<div class="about-me-page">        
-    <main class="about-me">
-        <section class="intro">
-            <h2>hello... i'm adrianna</h2>
-            <p>i'm a cognitive sciences student with an interest in design, data, and their connections and applications. 
-        this site is being slowly built to explore what i can make that is thoughtful, functional, and mine.</p>
-        </section>
+        <div class="main-layout">
+            <div class="column-left">
+                <div class="about-me-page">
+                    <main class="about-me">
+                        <section class="intro">
+                            <h2>hello... i'm adrianna</h2>
+                            <p>
+                            i'm a cognitive sciences student with an interest in design, data, and their connections and applications.
+                            this site is being slowly built to explore what i can make that is thoughtful, functional, and mine.
+                            </p>
+                        </section>
+                    </main>
+                </div>
+            </div>
 
-        <section class="background">
-            <h3>a summary of my background and what i've built</h3>
-            <ul>
-                <li>websites that look clean, unique and intentional</li>
-                <li>experience with data science, HTML, CSS, Java, R, and more</li>
-                <li>working on projects that bring together analysis, design, and functionality</li>
-            </ul>
-        </section>
+        <div class="column-right">
+            <section class="background">
+                            <h3>a summary of my background and what i've built</h3>
+                            <ul>
+                                <li>websites that look clean, unique and intentional</li>
+                                <li>experience with data science, HTML, CSS, Java, R, and more</li>
+                                <li>working on projects that bring together analysis, design, and functionality</li>
+                            </ul>
+                        </section>
 
-        <section class="this-site">
-            <h3> about this site</h3>
-            <p> built from scratch using HTML, CSS, and (mostly) vanilla JS. 
-                everything you see is in progress.</p>
-        </section>
+                        <section class="this-site">
+                            <h3>about this site</h3>
+                            <p>
+                            built from scratch using HTML, CSS, and (mostly) vanilla JS. everything you see is in progress.
+                            </p>
+                        </section>
+            <section>
+                <h3>education</h3>
+                <p> university of california, irvine - b.s. cognitive sciences</p>
+            </section>
+
+            <section>
+                <h3>tools</h3>
+                <p>HTML / CSS / JS / R / Python / Git / Figma</p>
+            </section>
+
+            <section>
+                <h3>contact</h3>
+                <p><a href="atrenado@uci.edu">email me</a></p>
+            </section>
+        </div>
+        </div>
     </main>
-</div>
 
     <script>
-    const cursor = document.getElementById("custom-cursor");
+        const cursor = document.getElementById("custom-cursor");
 
-    const cursorImages = {
-        default: 'images/normal.gif',
-        pointer: 'images/linkselect.gif',
-        precisionSelect: 'images/precisionselect.gif', 
-    };
+        const cursorImages = {
+            default: 'images/normal.gif',
+            pointer: 'images/linkselect.gif',
+            precisionSelect: 'images/precisionselect.gif',
+        };
 
-    cursor.src = cursorImages.default;
+        cursor.src = cursorImages.default;
 
-    document.addEventListener("mousemove", (e) => {
-        cursor.style.left = e.pageX + "px";
-        cursor.style.top = e.pageY + "px";
-    });
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.pageX + "px";
+            cursor.style.top = e.pageY + "px";
+        });
 
-    const pointerElements = document.querySelectorAll(
-        'button, a' 
-    );
+        const pointerElements = document.querySelectorAll('button, a');
 
-    pointerElements.forEach(element => {
-        element.addEventListener('mouseenter', () => {
+        pointerElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
             cursor.src = cursorImages.pointer;
         });
-        element.addEventListener('mouseleave', () => {
-            cursor.src = cursorImages.default; 
+            element.addEventListener('mouseleave', () => {
+            cursor.src = cursorImages.default;
         });
-    });
-
-    
-    const progressBarElement = document.querySelector('.progress-container');
-    if (progressBarElement) { 
-        progressBarElement.addEventListener('mouseenter', () => {
-            cursor.src = cursorImages.precisionSelect; 
         });
-        progressBarElement.addEventListener('mouseleave', () => {
-            cursor.src = cursorImages.default; 
+
+        const progressBarElement = document.querySelector('.progress-container');
+        if (progressBarElement) {
+            progressBarElement.addEventListener('mouseenter', () => {
+            cursor.src = cursorImages.precisionSelect;
         });
-    }
+            progressBarElement.addEventListener('mouseleave', () => {
+            cursor.src = cursorImages.default;
+            });
+        }
 
-    const music = document.getElementById("music");
-    const playPauseBtn = document.getElementById("play-pause-button");
-    const backBtn = document.getElementById("back-button");
-    const forwardBtn = document.getElementById("forward-button");
+        const music = document.getElementById("music");
+        const playPauseBtn = document.getElementById("play-pause-button");
+        const backBtn = document.getElementById("back-button");
+        const forwardBtn = document.getElementById("forward-button");
 
-    const progressContainer = document.querySelector('.progress-container');
-    const progressBar = document.querySelector('.progress-bar');
+        const progressContainer = document.querySelector('.progress-container');
+        const progressBar = document.querySelector('.progress-bar');
 
-    let isPlaying = false;
+        let isPlaying = false;
 
-    playPauseBtn.addEventListener("click", () => {
-        const playPauseImg = playPauseBtn.querySelector('img');
+        playPauseBtn.addEventListener("click", () => {
+            const playPauseImg = playPauseBtn.querySelector('img');
 
-        if (isPlaying) {
+            if (isPlaying) {
             music.pause();
             playPauseImg.src = "images/play.png";
         } else {
             music.play();
             playPauseImg.src = "images/pause.png";
         }
-        isPlaying = !isPlaying;
-    });
+            isPlaying = !isPlaying;
+        });
 
-    backBtn.addEventListener("click", () => {
-        music.currentTime = Math.max(0, music.currentTime - 5);
-    });
+        backBtn.addEventListener("click", () => {
+            music.currentTime = Math.max(0, music.currentTime - 5);
+        });
 
-    forwardBtn.addEventListener("click", () => {
-        music.currentTime = Math.min(music.duration, music.currentTime + 5);
-    });
+        forwardBtn.addEventListener("click", () => {
+            music.currentTime = Math.min(music.duration, music.currentTime + 5);
+        });
 
-    music.addEventListener('timeupdate', () => {
+        music.addEventListener('timeupdate', () => {
         const progressPercent = (music.currentTime / music.duration) * 100;
-        progressBar.style.width = `${progressPercent}%`;
-    });
+            progressBar.style.width = `${progressPercent}%`;
+        });
 
-    progressContainer.addEventListener('click', (e) => {
-        const clickX = e.pageX - progressContainer.getBoundingClientRect().left;
-        const containerWidth = progressContainer.offsetWidth;
-        const clickRatio = clickX / containerWidth;
+        progressContainer.addEventListener('click', (e) => {
+            const clickX = e.pageX - progressContainer.getBoundingClientRect().left;
+            const containerWidth = progressContainer.offsetWidth;
+            const clickRatio = clickX / containerWidth;
         music.currentTime = music.duration * clickRatio;
-    });
-
-</script>
+        });
+    </script>
 </body>
 </html>
