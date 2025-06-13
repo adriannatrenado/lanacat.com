@@ -13,87 +13,59 @@
 
     <audio id="music" src="audio/rinsed.mp3" preload="auto"></audio>
 
-    <div class="music-box">
-        <div class="top-row-player">
-        <img id="album-cover" src="images/albumcover.jpeg" alt="album cover" />
-        <div class="song-info-and-progress">
-            <p id="song-title">rinsed.mp3</p>
-            <div class="progress-container">
-            <div class="progress-bar"></div>
-            </div>
-        </div>
-        </div>
-
-    <div class="music-controls">
-        <button id="back-button" type="button">
-            <img src="images/back.png" alt="Back 5 seconds" />
-        </button>
-        <button id="play-pause-button" type="button">
-            <img src="images/play.png" alt="Play/Pause" />
-        </button>
-        <button id="forward-button" type="button">
-            <img src="images/forward.png" alt="Forward 5 seconds" />
-        </button>
+    <div id="landing-page">
+        <div class="landing-content">
+            <p class="click-to-enter">click to enter</p>
+            <img id="landing-lana" src="images/lanapixelicon.png" alt="Lana icon">
+            <p class="landing-title">lanacat.com</p>
         </div>
     </div>
 
-    <main class="page-content">
-        <img src="images/lanapixelicon.png" alt="lana cat sticker" class="lana-sticker" />
-
-        <header class="site-header">
-            <h1 id="site-title">lanacat.com</h1>
-        </header>
-
-        <div class="main-layout">
-            <div class="column-left">
-                <div class="about-me-page">
-                    <main class="about-me">
-                        <section class="intro">
-                            <h2>hello... i'm adrianna</h2>
-                            <p>
-                            i'm a cognitive sciences student with an interest in design, data, and their connections and applications.
-                            this site is being slowly built to explore what i can make that is thoughtful, functional, and mine.
-                            </p>
-                        </section>
-                    </main>
+    <div class="music-box">
+        <div class="top-row-player">
+            <img id="album-cover" src="images/albumcover.jpeg" alt="album cover" />
+            <div class="song-info-and-progress">
+                <p id="song-title">rinsed.mp3</p>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
                 </div>
             </div>
-
-        <div class="column-right">
-            <section class="background">
-                            <h3>a summary of my background and what i've built</h3>
-                            <ul>
-                                <li>websites that look clean, unique and intentional</li>
-                                <li>experience with data science, HTML, CSS, Java, R, and more</li>
-                                <li>working on projects that bring together analysis, design, and functionality</li>
-                            </ul>
-                        </section>
-
-                        <section class="this-site">
-                            <h3>about this site</h3>
-                            <p>
-                            built from scratch using HTML, CSS, and (mostly) vanilla JS. everything you see is in progress.
-                            </p>
-                        </section>
-            <section>
-                <h3>education</h3>
-                <p> university of california, irvine - b.s. cognitive sciences</p>
-            </section>
-
-            <section>
-                <h3>tools</h3>
-                <p>HTML / CSS / JS / R / Python / Git / Figma</p>
-            </section>
-
-            <section>
-                <h3>contact</h3>
-                <p><a href="atrenado@uci.edu">email me</a></p>
-            </section>
         </div>
+
+        <div class="music-controls">
+            <button id="back-button" type="button">
+                <img src="images/back.png" alt="Back 5 seconds" />
+            </button>
+            <button id="play-pause-button" type="button">
+                <img src="images/play.png" alt="Play/Pause" />
+            </button>
+            <button id="forward-button" type="button">
+                <img src="images/forward.png" alt="Forward 5 seconds" />
+            </button>
         </div>
-    </main>
+    </div>
+
+    <div id="home-page" class="hidden">
+        <main class="page-content">
+            <img src="images/lanapixelicon.png" alt="lana cat sticker" class="lana-sticker" />
+
+            <header class="site-header">
+                <h1 id="site-title">lanacat.com</h1>
+            </header>
+
+            <section class="intro-section">
+                <h2>hello... i'm adrianna</h2>
+                <p>
+                    i'm a cognitive sciences student with an interest in design, data, and their connections and applications.
+                    this site is being slowly built to explore what i can make that is thoughtful, functional, and mine.
+                </p>
+            </section>
+        </main>
+    </div>
 
     <script>
+        console.log("Cursor script running...");
+
         const cursor = document.getElementById("custom-cursor");
 
         const cursorImages = {
@@ -113,20 +85,20 @@
 
         pointerElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
-            cursor.src = cursorImages.pointer;
-        });
+                cursor.src = cursorImages.pointer;
+            });
             element.addEventListener('mouseleave', () => {
-            cursor.src = cursorImages.default;
-        });
+                cursor.src = cursorImages.default;
+            });
         });
 
         const progressBarElement = document.querySelector('.progress-container');
         if (progressBarElement) {
             progressBarElement.addEventListener('mouseenter', () => {
-            cursor.src = cursorImages.precisionSelect;
-        });
+                cursor.src = cursorImages.precisionSelect;
+            });
             progressBarElement.addEventListener('mouseleave', () => {
-            cursor.src = cursorImages.default;
+                cursor.src = cursorImages.default;
             });
         }
 
@@ -142,14 +114,13 @@
 
         playPauseBtn.addEventListener("click", () => {
             const playPauseImg = playPauseBtn.querySelector('img');
-
             if (isPlaying) {
-            music.pause();
-            playPauseImg.src = "images/play.png";
-        } else {
-            music.play();
-            playPauseImg.src = "images/pause.png";
-        }
+                music.pause();
+                playPauseImg.src = "images/play.png";
+            } else {
+                music.play();
+                playPauseImg.src = "images/pause.png";
+            }
             isPlaying = !isPlaying;
         });
 
@@ -162,7 +133,7 @@
         });
 
         music.addEventListener('timeupdate', () => {
-        const progressPercent = (music.currentTime / music.duration) * 100;
+            const progressPercent = (music.currentTime / music.duration) * 100;
             progressBar.style.width = `${progressPercent}%`;
         });
 
@@ -170,8 +141,22 @@
             const clickX = e.pageX - progressContainer.getBoundingClientRect().left;
             const containerWidth = progressContainer.offsetWidth;
             const clickRatio = clickX / containerWidth;
-        music.currentTime = music.duration * clickRatio;
+            music.currentTime = music.duration * clickRatio;
         });
+
+        const landingIcon = document.getElementById("landing-lana");
+        const landingPage = document.getElementById("landing-page");
+        const homePage = document.getElementById("home-page");
+
+        if (landingIcon) {
+            landingIcon.addEventListener("click", () => {
+                landingPage.classList.add("fade-out");
+                setTimeout(() => {
+                    landingPage.style.display = "none";
+                    homePage.classList.remove("hidden");
+                }, 1000);
+            });
+        }
     </script>
 </body>
 </html>

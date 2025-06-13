@@ -5,6 +5,7 @@
     font-style: normal;
 }
 
+
 html,
 body {
     background-color: #f7eff1;
@@ -15,14 +16,16 @@ body {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
 }
+
 #site-title {
-    position: relative;
     font-family: 'Cyperpunk Waifus', monospace;
     font-size: 60px;
     color: #6f616a;
+    position: relative;
     top: -20px;
     left: -30px;
 }
+
 p {
     margin: 0;
     font-size: 14px;
@@ -30,7 +33,7 @@ p {
 }
 
 #custom-cursor {
-    position: absolute;
+    position: fixed;
     width: 33px;
     height: 33px;
     pointer-events: none;
@@ -38,6 +41,7 @@ p {
     transform: translate(-50%, -55%);
     cursor: none;
     object-fit: contain;
+    border: 2px solid red;
 }
 
 .music-box {
@@ -59,7 +63,6 @@ p {
 
 .top-row-player {
     display: flex;
-    flex-direction: row;
     gap: 10px;
     align-items: center;
 }
@@ -71,7 +74,6 @@ p {
     border: 1px solid #acaeb4;
     object-fit: cover;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-
 }
 
 .song-info-and-progress {
@@ -126,7 +128,6 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    -webkit-appearance: none;
     appearance: none;
     outline: none;
 }
@@ -135,8 +136,6 @@ p {
     width: 30px;
     height: 20px;
     cursor: none;
-    transition: none;
-    transform: none;
     display: block;
 }
 
@@ -157,7 +156,49 @@ p {
     top: 45px;
     left: 130px;
     width: 90px;
-    border-radius: 0%;
+}
+
+#landing-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f7eff1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.landing-content {
+    text-align: center;
+    width: fit-content;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+#landing-lana {
+    width: 130px;
+}
+
+.click-to-enter {
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    color: #6f616a;
+    letter-spacing: 0.4px;
+    margin-bottom: 6px;
+}
+.landing-title {
+    font-size: 20px;
+    font-family: 'Cyperpunk Waifus', monospace;
+    color: #41383e;
+    margin-top: 4px;
+    border: #41383e 4px;
 }
 
 .site-header {
@@ -171,51 +212,4 @@ p {
     top: 140px;
     left: 80px;
     max-width: 700px;
-}
-
-.about-me {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    max-width: 700px;
-    width: 100%;
-}
-
-.about-me section {
-    background-color: #fbf6f8;
-    border-radius: 0px;
-    border: 1px solid #eadde2;
-    padding: 24px;
-    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.04);
-    transition: transform 0.2s ease;
-}
-
-.main-layout {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 30px;
-    padding: 40px 40px;
-    box-sizing: border-box;
-}
-
-.column-left {
-    flex: 1 1 400px;
-    max-width: 500px;
-    box-sizing: border-box;
-}
-
-.column-right {
-    flex: 1 1 500px;
-    max-width: 700px;
-    box-sizing: border-box;
-}
-
-.column-right section {
-    background-color: #fbf6f7;
-    border-radius: 0px;
-    border: 1px solid #eadde2;
-    padding: 24px;
-    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.04);
-    transition: transform 0.2s ease;
 }
